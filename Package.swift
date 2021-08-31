@@ -25,21 +25,21 @@
 
 import PackageDescription
 
-let package = Package(name: "Alamofire",
+let package = Package(name: "AlamofirePackage",
                       platforms: [.macOS(.v10_12),
                                   .iOS(.v10),
                                   .tvOS(.v10),
                                   .watchOS(.v3)],
-                      products: [.library(name: "Alamofire",
-                                          targets: ["Alamofire"])],
-                      targets: [.target(name: "Alamofire",
+                      products: [.library(name: "AlamofireProduct",
+                                          targets: ["AlamofireTarget"])],
+                      targets: [.target(name: "AlamofireTarget",
                                         path: "Source",
                                         linkerSettings: [.linkedFramework("CFNetwork",
                                                                           .when(platforms: [.iOS,
                                                                                             .macOS,
                                                                                             .tvOS,
                                                                                             .watchOS]))]),
-                                .testTarget(name: "AlamofireTests",
-                                            dependencies: ["Alamofire"],
+                                .testTarget(name: "AlamofireTestTarget",
+                                            dependencies: ["AlamofireTarget"],
                                             path: "Tests")],
                       swiftLanguageVersions: [.v5])
